@@ -4,9 +4,9 @@ import pylab
 from pyMNIST.read_mnist_img import *
 from pyMNIST.read_mnist_label import *
 
-images_file = "t10k-images-idx3-ubyte"
+images_file = "train-images-idx3-ubyte"
 
-labels_file = "t10k-labels-idx1-ubyte"
+labels_file = "train-labels-idx1-ubyte"
 
 mnist_lbls = read_label_file(labels_file)
 
@@ -18,7 +18,7 @@ mnist_imgs = read_img_file(images_file, labels=mnist_lbls)
 
 for idx in mnist_imgs.keys():
   label = mnist_imgs[idx]["lbl"]
-  out_filename = "t10k/%s__idx_%06d__lbl_%02d_.png"%(images_file, idx, label)
+  out_filename = "train/%s__idx_%06d__lbl_%02d_.png"%(images_file, idx, label)
   
   cv2.imwrite(out_filename, mnist_imgs[idx]["img"])
 
